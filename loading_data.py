@@ -44,9 +44,3 @@ def create_testing_data():
     pickle_x_test_out = open("X_test.pickle", "wb")
     pickle.dump(x_test, pickle_x_test_out)
     pickle_x_test_out.close()
-
-def create():
-    create_training_data()
-    create_testing_data()
-
-create()

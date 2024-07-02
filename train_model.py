@@ -21,5 +21,3 @@ def train_model():
     model.fit(x_train, y_train)
     pickle.dump(model, open("model.pickle", "wb"))
     open("model.pickle").close()
-
-train_model()

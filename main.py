@@ -1,10 +1,15 @@
 from loading_data import create_testing_data
 from train_model import train_model
+from data_cleaning import data_cleaning
 
 import os
 import pickle
 import csv
 import numpy as np
+
+
+#Cleaning the given data
+data_cleaning()
 
 #Checking if the model exists or not
 if os.path.exists("model.pickle"):
@@ -32,4 +37,4 @@ print(predictions)
 
 with open('result.csv', 'a', newline='\n') as f:
     writer = csv.writer(f)
-    writer.writerows(round(predictions,2))
+    writer.writerows(predictions)
