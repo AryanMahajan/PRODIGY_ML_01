@@ -16,9 +16,14 @@ df_uncleaned_train.to_csv(r"Data\train.csv")
 
 df_uncleaned_test = pd.read_csv(r"house-prices-advanced-regression-techniques\test.csv")
 
+df_uncleaned_test = df_uncleaned_test.fillna(0)
+
 df_uncleaned_test = df_uncleaned_test.drop(unwanted_columns, axis = 1)
 
 df_uncleaned_test["BsmtFullBath"] = df_uncleaned_test["BsmtFullBath"] + df_uncleaned_test["BsmtHalfBath"] + df_uncleaned_test["FullBath"] + df_uncleaned_test["HalfBath"]
+
+ls = [int(float) for float in df_uncleaned_test["BsmtFullBath"]]
+df_uncleaned_test["BsmtFullBath"] = ls
 
 df_uncleaned_test = df_uncleaned_test.drop(["BsmtHalfBath","FullBath","HalfBath"], axis = 1)
 
